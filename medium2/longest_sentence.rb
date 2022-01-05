@@ -30,6 +30,7 @@ Find the longest sentence.
 Print it to the screen, as well as the number of words it contains.
 =end
 
+# My Solution
 def find_longest(txt_file)
   file = File.open(txt_file)
   text = file.read
@@ -44,3 +45,14 @@ def find_longest(txt_file)
 end
 
 find_longest("frankenstein.txt")
+
+# LS Solution
+text = File.read('sample_text.txt')
+sentences = text.split(/\.|\?|!/)
+largest_sentence = sentences.max_by { |sentence| sentence.split.size }
+largest_sentence = largest_sentence.strip
+number_of_words = largest_sentence.split.size
+
+puts "#{largest_sentence}"
+puts "Containing #{number_of_words} words"
+  
